@@ -43,19 +43,31 @@ $totalRows = ($lista)->num_rows;
                 </thead>
                 <!-- tbody>tr>td*8 -->
                 <tbody> <!-- corpo da tabela -->
-                    <tr>
-                       <!-- Insira os dados determinando a linha e o campo -->
-                        <td><?php echo $row['id_produto']; ?></td>
-                        <td><?php echo $row['id_tipo_produto']; ?></td>
-                        <td><?php echo $row['destaque_produto']; ?></td>
-                        <td><?php echo $row['descri_produto']; ?></td>
-                        <td><?php echo $row['resumo_produto']; ?></td>
-                        <td><?php echo $row['valor_produto']; ?></td>
-                        <td><?php echo $row['imagem_produto']; ?></td>
-                        <td>ALTERAR|EXCLUIR</td>
-                    </tr>
+                   <!-- Abre a estrutura de repetição  -->
+                   <?php do {?> 
+                        <tr> <!-- Linha da tabela -->
+                           <!-- Insira os dados determinando a linha e o campo -->
+                            <td><?php echo $row['id_produto']; ?></td>
+                            <td><?php echo $row['id_tipo_produto']; ?></td>
+                            <td><?php echo $row['destaque_produto']; ?></td>
+                            <td><?php echo $row['descri_produto']; ?></td>
+                            <td><?php echo $row['resumo_produto']; ?></td>
+                            <td><?php echo $row['valor_produto']; ?></td>
+                            <!-- Para exibir a imagem insira em 'src' o diretório que está armazenada e a variável com seu nome -->
+                            <td>
+                                <img src="../imagens/<?php echo 
+                                $row['imagem_produto']; ?>" alt="<?php echo 
+                                $row['descri_produto']; ?>" width="100px">
+                            </td>
+                            <td>ALTERAR|EXCLUIR</td>
+                        </tr>
+                    <?php } while ($row = $lista->fetch_assoc()); ?>
+                    <!-- Fecha a estrutura de repetição -->
                 </tbody>
             </table>
         </main>
     </body>
 </html>
+<?php //Limpar o cache dos dados
+    mysqli_free_result($lista); 
+?>
