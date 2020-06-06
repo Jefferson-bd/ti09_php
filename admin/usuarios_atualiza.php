@@ -56,9 +56,9 @@ $totalRows      = ($lista)->num_rows;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/main.css" type="text/css">
+    <link rel="stylesheet" href="../css/meu_estilo.css" type="text/css">
 </head>
-<body class="fundoFixo">
+<body class="fundofixo">
 <?php include "menu_adm.php";?>
 <main class="container">
     <div class="row">
